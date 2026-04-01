@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
         OnPlayerPaused?.Invoke(sender, EventArgs.Empty);
     }
 
-    [SerializeField] private float _playerSpeed = 10f;
+    [SerializeField] private float _playerSpeed = 500f;
     [SerializeField] private float _playerRotationSpeed = 700f;
     
 
