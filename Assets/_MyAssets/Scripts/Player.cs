@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         // transform.Translate(direction * Time.deltaTime * _playerSpeed, Space.World);
 
         // D?placement ? une vitesse donn? dans la direction du vecteur
-        _rb.linearVelocity = direction * Time.fixedDeltaTime * _playerSpeed;
+        _rb.linearVelocity = direction * Time.fixedDeltaTime *_playerSpeed;
 
         // Pousser le corps dans la direction du vecteur
         //_rb.AddForce(direction * Time.fixedDeltaTime * _playerSpeed);

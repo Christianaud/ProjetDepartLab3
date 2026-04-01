@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     }
 
     private int _nbCollisions;
-    public int NbCollision => _nbCollisions; // accesseur public
+    public int NbCollision => _nbCollisions; 
 
     private float _startTime;
     public float StartTime => _startTime;
