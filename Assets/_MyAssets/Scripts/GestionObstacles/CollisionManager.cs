@@ -25,8 +25,8 @@ public class CollisionManager : MonoBehaviour
             }
             else
             {
-                MeshRenderer[] toto = GetComponentsInChildren<MeshRenderer>();
-                foreach (var m in toto)
+                MeshRenderer[] meshes = GetComponentsInChildren<MeshRenderer>();
+                foreach (var m in meshes)
                 {
                     m.material = _hitMaterial;
                 }
