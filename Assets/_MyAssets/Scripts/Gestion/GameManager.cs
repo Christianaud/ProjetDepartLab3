@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     private void CollisionManager_OnCollisionOccured(object sender, CollisionManager.OnCollisionOccuredEventArgs e)
     {
+        //Debug.Log("GameManager reçoit collision");
         _nbCollisions += e.CollisionValue;
     }
 }

@@ -19,6 +19,7 @@ public class CollisionManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !_isHit)
         {
+            //Debug.Log("Collision détectée");
             if (TryGetComponent<MeshRenderer>(out MeshRenderer meshRenderer))
             {
                 meshRenderer.material = _hitMaterial;
@@ -36,7 +37,7 @@ public class CollisionManager : MonoBehaviour
             {
                 CollisionValue = _collisionValue
             });
-
+            //Debug.Log("Event envoyé");
             _isHit = true;
         }
     }

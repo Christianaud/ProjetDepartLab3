@@ -29,8 +29,8 @@ public class UIGame : UI
 
     private void Start()
     {
-        Time.timeScale = 1.0f;  // Assurer que le jeu d?bute pas en pause
-        _pausePanel.SetActive(false);
+        //Time.timeScale = 1.0f;  // Assurer que le jeu d?bute pas en pause
+        //_pausePanel.SetActive(false);
 
         Player.OnPlayerPaused += Player_OnPlayerPaused;
         CollisionManager.OnCollisionOccured += CollisionManager_OnCollisionOccured;
@@ -64,7 +64,6 @@ public class UIGame : UI
     private void CollisionDisplayUI()
     {
         _txtCollisions.text = $"Collisions : {GameManager.Instance.NbCollision}";
-        Debug.Log("obstacles");
     }
 
     private void CollisionManager_OnCollisionOccured(object sender, CollisionManager.OnCollisionOccuredEventArgs e)
