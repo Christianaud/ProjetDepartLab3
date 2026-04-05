@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Player.Enable();
         //_playerInputActions.Player.Dance.performed += Dance_performed;
-        //_playerInputActions.Player.Pause.performed += Pause_performed;
+        _playerInputActions.Player.Pause.performed += Pause_performed;
     }
 
     private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

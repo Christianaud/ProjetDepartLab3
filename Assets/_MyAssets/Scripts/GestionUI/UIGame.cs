@@ -29,8 +29,8 @@ public class UIGame : UI
 
     private void Start()
     {
-        //Time.timeScale = 1.0f;  // Assurer que le jeu d?bute pas en pause
-        //_pausePanel.SetActive(false);
+        Time.timeScale = 1.0f;  // Assurer que le jeu d?bute pas en pause
+        _pausePanel.SetActive(false);
 
         Player.OnPlayerPaused += Player_OnPlayerPaused;
         CollisionManager.OnCollisionOccured += CollisionManager_OnCollisionOccured;
