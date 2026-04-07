@@ -9,9 +9,9 @@ public class EndLevel : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             int noScene = SceneManager.GetActiveScene().buildIndex;
-
+            
             //V?rifier si derni?re sc?ne de jeu
-            if (noScene < SceneManager.sceneCountInBuildSettings - 2)
+            if (noScene < SceneManager.sceneCountInBuildSettings - 1)
             {
                 //Passer ? la sc?ne suivante
                 SceneManager.LoadScene(noScene + 1);

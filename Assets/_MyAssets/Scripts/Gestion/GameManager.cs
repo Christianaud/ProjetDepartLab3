@@ -40,8 +40,9 @@ public class GameManager : MonoBehaviour
     private bool _isPaused = false;
 
     private bool _timerStarted = false;
-
     public bool TimerStarted => _timerStarted;
+
+    private float _timeDebutLevel;
 
     // --- Listes pour stocker les temps et collisions par niveau ---
     private List<float> _tempsParNiveau = new List<float>();
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
         if (!_timerStarted)
         {
             _startTime = Time.time;
+            _timeDebutLevel = Time.time;
             _timerStarted = true;
             //Debug.Log("Timer démarré à : " + _startTime);
         }
@@ -90,6 +92,7 @@ public class GameManager : MonoBehaviour
     // Dans GameManager.cs
     public void ResetCurrentLevel()
     {
+        _timeDebutLevel = Time.time;
         _nbCollisions = 0;
         _startTime = Time.time;
         _timerStarted = false;
@@ -103,9 +106,11 @@ public class GameManager : MonoBehaviour
             _tempsParNiveau.Add(0f);
         while (_collisionsParNiveau.Count <= index)
             _collisionsParNiveau.Add(0);
-
-        _tempsParNiveau[index] = TimerStarted ? Time.time - _startTime : 0f;
-        _collisionsParNiveau[index] = _nbCollisions;
+        if (_tempsParNiveau[index] == 0f)
+        {
+            _tempsParNiveau[index] = TimerStarted ? Time.time - _timeDebutLevel : 0f;
+            _collisionsParNiveau[index] = _nbCollisions;
+        }
     }
 
     // --- Récupérer temps et collisions d’un niveau ---
@@ -129,8 +134,6 @@ public class GameManager : MonoBehaviour
         float total = 0f;
         foreach (float t in _tempsParNiveau)
             total += t;
-
-        // Ajouter le niveau courant si en cours
         if (_timerStarted)
             total += Time.time - _startTime;
 
@@ -143,7 +146,7 @@ public class GameManager : MonoBehaviour
         foreach (int c in _collisionsParNiveau)
             total += c;
 
-        total += _nbCollisions; // ajouter niveau courant
+        total += _nbCollisions;
         return total;
     }
 }
