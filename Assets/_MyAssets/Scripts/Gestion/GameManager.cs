@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     /* Classe qui d?finit un singleton */
 
     public static GameManager Instance;
+
     private void Awake()
     {
         if (Instance == null)
@@ -36,12 +37,26 @@ public class GameManager : MonoBehaviour
 
     private bool _isPaused = false;
 
+    private bool _timerStarted = false;
+
+    public bool TimerStarted => _timerStarted;
+
     private void Start()
     {
         _nbCollisions = 0;
-        _startTime = Time.time;
+        //_startTime = Time.time;
         _isPaused = false;
         Player.OnPlayerPaused += Player_OnPlayerPaused;
+    }
+
+    public void StartTimer()
+    {
+        if (!_timerStarted)
+        {
+            _startTime = Time.time;
+            _timerStarted = true;
+            //Debug.Log("Timer démarré à : " + _startTime);
+        }
     }
 
     private void Player_OnPlayerPaused(object sender, System.EventArgs e)
@@ -65,6 +80,14 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("GameManager reçoit collision");
         _nbCollisions += e.CollisionValue;
+    }
+
+    // Dans GameManager.cs
+    public void ResetCurrentLevel()
+    {
+        _nbCollisions = 0;
+        _startTime = Time.time;
+        _timerStarted = false;
     }
 }
 

@@ -70,6 +70,7 @@ public class Player : MonoBehaviour
 
         if (direction != Vector3.zero)
         {
+            GameManager.Instance.StartTimer();
             Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation
                 , toRotation, _playerRotationSpeed * Time.deltaTime);

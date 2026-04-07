@@ -22,8 +22,10 @@ public class UIGame : UI
         }
         else
         {
-            Debug.LogError("Un gameObject essaie de cr?e un deuxi?me UIGame");
+           
             Destroy(gameObject);
+            return;
+            Debug.LogError("Un gameObject essaie de cr?e un deuxi?me UIGame");
         }
     }
 
@@ -52,13 +54,29 @@ public class UIGame : UI
     {
         //Toggle(basculer) du panneau de pause
         _pausePanel.SetActive(!_pausePanel.activeSelf);
-        EventSystem.current.SetSelectedGameObject(_continueButton.gameObject);
+
+        if (_pausePanel.activeSelf)
+        {
+            Time.timeScale = 0f; 
+            EventSystem.current.SetSelectedGameObject(_continueButton.gameObject);
+        }
+        else
+        {
+            Time.timeScale = 1f; 
+        }
     }
 
     private void TimeDisplayUI()
     {
-        float elapsedTime = Time.time - GameManager.Instance.StartTime;
-        _txtTime.text = $"Temps : {elapsedTime:F2}";
+        if (GameManager.Instance.TimerStarted)
+        {
+            float elapsedTime = Time.time - GameManager.Instance.StartTime;
+            _txtTime.text = $"Temps : {elapsedTime:F2}";
+        }
+        else
+        {
+            _txtTime.text = "Temps : 0.00";
+        }
     }
 
     private void CollisionDisplayUI()
@@ -75,6 +93,22 @@ public class UIGame : UI
     {
         // Reprendre le jeu
         Player.TriggerOnPlayerPaused(this);
+    }
+
+    private void ResetUI()
+    {
+        _txtTime.text = "Temps : 0.00";
+        _txtCollisions.text = "Collisions : 0";
+    }
+
+    public void OnRestartLevelClick()
+    {
+        GameManager.Instance.ResetCurrentLevel();
+        _pausePanel.SetActive(false);
+        Time.timeScale = 1.0f;
+        ResetUI();
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }
 
