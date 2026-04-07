@@ -103,6 +103,8 @@ public class UIGame : UI
 
     public void OnRestartLevelClick()
     {
+        
+        
         GameManager.Instance.ResetCurrentLevel();
         _pausePanel.SetActive(false);
         Time.timeScale = 1.0f;

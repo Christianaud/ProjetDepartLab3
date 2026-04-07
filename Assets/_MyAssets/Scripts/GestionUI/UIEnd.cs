@@ -23,10 +23,11 @@ public class UIEnd : UI
 
     private void Start()
     {
+        GameManager.Instance.SaveLevelData();
         EventSystem.current.SetSelectedGameObject(_buttonRestart.gameObject);
-        _txtTotalTime.text = $"Temps total : {GameManager.Instance.EndTime:F2} sec.";
-        _txtCollisions.text = $"Collisions : {GameManager.Instance.NbCollision}";
-        float total = GameManager.Instance.NbCollision + GameManager.Instance.EndTime;
+        _txtTotalTime.text = $"Temps total : {GameManager.Instance.GetTotalTime():F2} sec.";
+        _txtCollisions.text = $"Collisions : {GameManager.Instance.GetTotalCollisions()}";
+        float total = GameManager.Instance.GetTotalCollisions() + GameManager.Instance.GetTotalTime();
         _txtFinal.text = $"Temps final : {total:F2} sec.";
     }
 }

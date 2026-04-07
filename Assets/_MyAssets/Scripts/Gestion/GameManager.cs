@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,6 +43,9 @@ public class GameManager : MonoBehaviour
 
     public bool TimerStarted => _timerStarted;
 
+    // --- Listes pour stocker les temps et collisions par niveau ---
+    private List<float> _tempsParNiveau = new List<float>();
+    private List<int> _collisionsParNiveau = new List<int>();
     private void Start()
     {
         _nbCollisions = 0;
@@ -88,6 +93,58 @@ public class GameManager : MonoBehaviour
         _nbCollisions = 0;
         _startTime = Time.time;
         _timerStarted = false;
+    }
+
+    public void SaveLevelData()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+
+        while (_tempsParNiveau.Count <= index)
+            _tempsParNiveau.Add(0f);
+        while (_collisionsParNiveau.Count <= index)
+            _collisionsParNiveau.Add(0);
+
+        _tempsParNiveau[index] = TimerStarted ? Time.time - _startTime : 0f;
+        _collisionsParNiveau[index] = _nbCollisions;
+    }
+
+    // --- Récupérer temps et collisions d’un niveau ---
+    public float GetLevelTime(int niveau)
+    {
+        if (niveau < _tempsParNiveau.Count)
+            return _tempsParNiveau[niveau];
+        return 0f;
+    }
+
+    public int GetLevelCollisions(int niveau)
+    {
+        if (niveau < _collisionsParNiveau.Count)
+            return _collisionsParNiveau[niveau];
+        return 0;
+    }
+
+    // --- Cumul total sur tous les niveaux ---
+    public float GetTotalTime()
+    {
+        float total = 0f;
+        foreach (float t in _tempsParNiveau)
+            total += t;
+
+        // Ajouter le niveau courant si en cours
+        if (_timerStarted)
+            total += Time.time - _startTime;
+
+        return total;
+    }
+
+    public int GetTotalCollisions()
+    {
+        int total = 0;
+        foreach (int c in _collisionsParNiveau)
+            total += c;
+
+        total += _nbCollisions; // ajouter niveau courant
+        return total;
     }
 }
 
