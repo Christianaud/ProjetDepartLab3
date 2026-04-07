@@ -179,7 +179,7 @@ MonoBehaviour:
   m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d90e06d513e15849bd19b6900ffbeed, type: 2}
-  m_sharedMaterial: {fileID: 755974359161230112, guid: 1d90e06d513e15849bd19b6900ffbeed, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: cb621ebb24d29a449b55958fa3bddeec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_text: Quitter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d90e06d513e15849bd19b6900ffbeed, type: 2}
-  m_sharedMaterial: {fileID: 755974359161230112, guid: 1d90e06d513e15849bd19b6900ffbeed, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: cb621ebb24d29a449b55958fa3bddeec, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -784,7 +784,7 @@ MonoBehaviour:
   m_text: Bowser Dodge rush
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c04ca07df1dbc34d89aca44bd883d7b, type: 2}
-  m_sharedMaterial: {fileID: -1381703486124292609, guid: 0c04ca07df1dbc34d89aca44bd883d7b, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 70ea7887215c4c5409f599707b5e8971, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1258,7 +1258,7 @@ MonoBehaviour:
   m_text: 'Temps Total : '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 26bb7294efa0fa84c90c7ddd8c0835a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1534,7 +1534,7 @@ MonoBehaviour:
   m_text: 'Collisions : '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 26bb7294efa0fa84c90c7ddd8c0835a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1904,7 +1904,7 @@ MonoBehaviour:
   m_text: 'Final :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 26bb7294efa0fa84c90c7ddd8c0835a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
