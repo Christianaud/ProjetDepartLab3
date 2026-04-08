@@ -44,9 +44,10 @@ public class GameManager : MonoBehaviour
 
     private float _timeDebutLevel;
 
-    // --- Listes pour stocker les temps et collisions par niveau ---
+    // Listes pour stocker les temps et collisions par niveau
     private List<float> _tempsParNiveau = new List<float>();
     private List<int> _collisionsParNiveau = new List<int>();
+
     private void Start()
     {
         _nbCollisions = 0;
@@ -85,7 +86,6 @@ public class GameManager : MonoBehaviour
 
     private void CollisionManager_OnCollisionOccured(object sender, CollisionManager.OnCollisionOccuredEventArgs e)
     {
-        //Debug.Log("GameManager reçoit collision");
         _nbCollisions += e.CollisionValue;
     }
 
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // --- Récupérer temps et collisions d’un niveau ---
+    // Récupérer temps et collisions par niveau
     public float GetLevelTime(int niveau)
     {
         if (niveau < _tempsParNiveau.Count)
@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
         return 0;
     }
 
-    // --- Cumul total sur tous les niveaux ---
+    // total sur tous les niveaux
     public float GetTotalTime()
     {
         float total = 0f;

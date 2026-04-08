@@ -37,7 +37,6 @@ public class CollisionManager : MonoBehaviour
             {
                 CollisionValue = _collisionValue
             });
-            //Debug.Log("Event envoyé");
             _isHit = true;
         }
     }
